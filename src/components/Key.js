@@ -9,15 +9,11 @@ const Key = ({ keyVal, bigKey }) => {
       newBoard[currPosition.row][currPosition.col] = keyVal;
       setBoard(newBoard);
       setCurrPosition((curr) => {
-         curr.col++;
-         if (curr.col === 6) {
-            curr.row++;
-            curr.col = 0;
+         if (curr.col < 4) {
+            return { ...curr, col: curr.col + 1 };
+         } else if (curr.col === 4) {
+            return { ...curr, col: 0, row: curr.row + 1 };
          }
-         if (curr.row === 6) {
-            curr.row = 0;
-         }
-         return curr;
       });
    };
    return (
