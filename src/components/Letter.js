@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../context";
 
-const Letter = ({ letterPosition, attemptValue }) => {
+const Letter = ({ row, col }) => {
    const { board } = useContext(AppContext);
-   const letter = board[attemptValue][letterPosition];
+   const letter = board[row][col];
    return <div className="letter">{letter}</div>;
 };
 

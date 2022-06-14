@@ -7,14 +7,19 @@ import { initialBoard } from "./Words";
 
 function App() {
    const [board, setBoard] = useState(initialBoard);
+   const [currPosition, setCurrPosition] = useState({ row: 0, col: 0 });
    return (
-      <AppContext.Provider value={{ board, setBoard }}>
+      <AppContext.Provider
+         value={{ board, setBoard, currPosition, setCurrPosition }}
+      >
          <div className="App">
             <nav>
                <h1>Wordle Whenever</h1>
             </nav>
-            <Board />
-            <Keyboard />
+            <div className="game">
+               <Board />
+               <Keyboard />
+            </div>
          </div>
       </AppContext.Provider>
    );
