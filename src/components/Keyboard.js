@@ -1,10 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
 import Key from "./Key";
 
 const Keyboard = () => {
    const line1_keys = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
    const line2_keys = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
    const line3_keys = ["Z", "X", "C", "V", "B", "N", "M"];
+
+   // useEffect(()=>{
+
+   // },[handleUserKeyboard])
+
    return (
       <div className="keyboard">
          <div className="line1">

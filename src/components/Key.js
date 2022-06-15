@@ -2,22 +2,20 @@ import { useContext } from "react";
 import { AppContext } from "../context";
 
 const Key = ({ keyVal, bigKey }) => {
-   const { board, setBoard, currPosition, setCurrPosition } =
+   const { onEnterPress, onDeletePress, onLetterPress } =
       useContext(AppContext);
-   const selectLetter = () => {
-      const newBoard = [...board];
-      newBoard[currPosition.row][currPosition.col] = keyVal;
-      setBoard(newBoard);
-      setCurrPosition((curr) => {
-         if (curr.col < 4) {
-            return { ...curr, col: curr.col + 1 };
-         } else if (curr.col === 4) {
-            return { ...curr, col: 0, row: curr.row + 1 };
-         }
-      });
+
+   const onKeySelect = () => {
+      if (keyVal === "ENTER") {
+         onEnterPress();
+      } else if (keyVal === "DELETE") {
+         onDeletePress();
+      } else {
+         onLetterPress(keyVal);
+      }
    };
    return (
-      <div className="key" id={bigKey && "big"} onClick={selectLetter}>
+      <div className="key" id={bigKey && "big"} onClick={onKeySelect}>
          {keyVal}
       </div>
    );
