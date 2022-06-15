@@ -2,20 +2,20 @@ import { useContext } from "react";
 import { AppContext } from "../context";
 
 const Key = ({ keyVal, bigKey }) => {
-   const { onEnterPress, onDeletePress, onLetterPress } =
+   const { onSelectEnter, onSelectDelete, onSelectLetter } =
       useContext(AppContext);
 
-   const onKeySelect = () => {
+   const onSelectKey = () => {
       if (keyVal === "ENTER") {
-         onEnterPress();
+         onSelectEnter();
       } else if (keyVal === "DELETE") {
-         onDeletePress();
+         onSelectDelete();
       } else {
-         onLetterPress(keyVal);
+         onSelectLetter(keyVal);
       }
    };
    return (
-      <div className="key" id={bigKey && "big"} onClick={onKeySelect}>
+      <div className="key" id={bigKey && "big"} onClick={onSelectKey}>
          {keyVal}
       </div>
    );
